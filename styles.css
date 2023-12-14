@@ -1,12 +1,26 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  width: 50vh;
 }
 
 .squares {
   background-color: #000;
-  width: 30px;
-  height: 30px;
+  width: 12.5vh;
+  height: 12.5vh;
+}
+
+.drawing {
+  background-color: #008770;
+  width: 12.5vh;
+  height: 12.5vh;
 }

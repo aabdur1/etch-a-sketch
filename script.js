@@ -6,3 +6,10 @@ for (i = 0; i < 16; i++) {
   div.setAttribute('class', 'squares');
   container.appendChild(div);
 }
+
+const square = document.querySelector('.squares');
+square.addEventListener('mouseover', draw);
+
+function draw() {
+  square.setAttribute('class', 'drawing');
+}
