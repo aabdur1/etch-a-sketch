@@ -3,10 +3,15 @@ const container = document.querySelector('#container');
 const num = document.getElementById('num');
 const numBtn = document.getElementById('numBtn');
 let a;
+const minVal = 10;
+const maxVal = 100; 
 
 function total() {
-  a = 50/(num.value);
-  const x = (num.value)**2;
+  let userInput = parseInt(num.value);
+  userInput = isNaN(userInput) ? minVal : Math.min(maxVal, Math.max(minVal, userInput));
+
+  a = 50 / userInput;
+  const x = userInput ** 2;
 
   container.innerHTML = '';
 
