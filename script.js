@@ -1,4 +1,4 @@
-const container = document.querySelector('.container');
+const container = document.querySelector('#container');
 
 
 for (i = 0; i < 16; i++) {
@@ -7,9 +7,12 @@ for (i = 0; i < 16; i++) {
   container.appendChild(div);
 }
 
-const square = document.querySelector('.squares');
-square.addEventListener('mouseover', draw);
+const squares = document.querySelectorAll('.squares');
+console.log(squares);
+squares.forEach(sketch);
 
-function draw() {
-  square.setAttribute('class', 'drawing');
+function sketch(square) {
+  square.addEventListener('mouseover', () => {
+    square.setAttribute('class', 'drawing');
+  })
 }

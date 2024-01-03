@@ -5,7 +5,7 @@ body {
   height: 100vh;
 }
 
-.container {
+#container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,13 +14,13 @@ body {
 }
 
 .squares {
-  background-color: #000;
+  background-color: #000000;
   width: 12.5vh;
   height: 12.5vh;
 }
 
 .drawing {
-  background-color: #008770;
+  background-color: #ffffff;
   width: 12.5vh;
   height: 12.5vh;
 }
