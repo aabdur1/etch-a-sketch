@@ -1,18 +1,33 @@
 const container = document.querySelector('#container');
 
+const num = document.getElementById('num');
+const numBtn = document.getElementById('numBtn');
+let a;
 
-for (i = 0; i < 256; i++) {
-  const div = document.createElement('div');
-  div.setAttribute('class', 'squares');
-  container.appendChild(div);
+function total() {
+  a = 50/(num.value);
+  const x = (num.value)**2;
+
+  container.innerHTML = '';
+
+  for (let i = 0; i < x; i++) {
+    const div = document.createElement('div');
+    div.setAttribute('class', 'squares');
+    div.style.width = `${a}vw`;
+    div.style.height = `${a}vw`;
+    container.appendChild(div);
+  }
 }
 
-const squares = document.querySelectorAll('.squares');
-console.log(squares);
-squares.forEach(sketch);
+numBtn.addEventListener('click', total);
 
-function sketch(square) {
-  square.addEventListener('mouseover', () => {
-    square.setAttribute('class', 'drawing');
-  })
-}
+container.addEventListener('mouseover', function(event) {
+  const target = event.target;
+  
+  // Check if the mouseover target is a .squares element
+  if (target.classList.contains('squares')) {
+    target.setAttribute('class', 'drawing');
+    target.style.width = `${a}vw`;
+    target.style.height = `${a}vw`;
+  }
+});

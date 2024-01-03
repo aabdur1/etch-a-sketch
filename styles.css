@@ -1,8 +1,10 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  margin-top: 7vw;
+  gap: 5vw;
 }
 
 #container {
@@ -10,17 +12,14 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 50vh;
+  width: 50vw;
+  height: 50vw;
 }
 
 .squares {
   background-color: #000000;
-  width: 3vh;
-  height: 3vh;
 }
 
 .drawing {
-  background-color: #ffffff;
-  width: 3vh;
-  height: 3vh;
+  background-color: #769bd3;
 }
