@@ -13,6 +13,7 @@ function total() {
   let userInput = parseInt(num.value);
   userInput = isNaN(userInput) ? minVal : Math.min(maxVal, Math.max(minVal, userInput));
 
+  // Container width divided by input # for square dimensions
   a = 40 / userInput;
   const x = userInput ** 2;
 
