@@ -1,12 +1,10 @@
 const title = document.querySelector('.title');
-
 const container = document.querySelector('#container');
-
 const num = document.getElementById('num');
 const numBtn = document.getElementById('numBtn');
-let a;
 const minVal = 10;
 const maxVal = 100; 
+let a;
 let isDrawing = false;
 
 function total() {
@@ -66,16 +64,19 @@ function getRandomColor() {
   return randomColor;
 }
 
+// Apply random background colors to the title, body, and container
 function applyRandomColors() {
-  // Apply random background colors to the title, body, and container
   document.body.style.backgroundColor = getRandomColor();
   container.style.backgroundColor = getRandomColor();
   title.style.backgroundColor = getRandomColor();
   title.style.color = getRandomColor();
 }
 
+// Create sketch area and randomize BG colors
 numBtn.addEventListener('click', total);
 numBtn.addEventListener('click', applyRandomColors);
+
+
 container.addEventListener('click', startDrawing)
 
 const resetBtn = document.getElementById('resetBtn')
