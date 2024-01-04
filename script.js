@@ -60,18 +60,61 @@ function getRandomColor() {
   const randomBlue = Math.floor(Math.random() * 256);
 
   // Construct the RGB color string
-  const randomColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
-
-  return randomColor;
+  return `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
 }
 
 // Apply random BG colors to the title, body, and container
 function applyRandomColors() {
   document.body.style.backgroundColor = getRandomColor();
   container.style.backgroundColor = getRandomColor();
-  title.style.backgroundColor = getRandomColor();
-  title.style.color = getRandomColor();
+
+  // Generate a new background color and a random text color
+  const newBackgroundColor = getRandomColor();
+  const newTextColor = getRandomColor();
+
+  // Apply the new background color and text color
+  title.style.backgroundColor = newBackgroundColor;
+  title.style.color = newTextColor;
+
+  // Calculate and apply the outline color
+  const outlineColor = calculateOutlineColor(newBackgroundColor, newTextColor);
+  title.style.textShadow = `0 0 5px ${outlineColor}`;
 }
+
+function calculateOutlineColor(bgColor, textColor) {
+  // Calculate the contrast ratio between background and text colors
+  const contrastRatio = getContrastRatio(bgColor, textColor);
+
+  // Use a light or dark outline based on the contrast ratio
+  const outlineColor = contrastRatio >= 4.5 ? '#000000' : '#ffffff';
+
+  return outlineColor;
+}
+
+// Function to calculate contrast ratio between two colors
+function getContrastRatio(color1, color2) {
+  const luminance1 = calculateRelativeLuminance(color1);
+  const luminance2 = calculateRelativeLuminance(color2);
+
+  const brighter = Math.max(luminance1, luminance2);
+  const darker = Math.min(luminance1, luminance2);
+
+  return (brighter + 0.05) / (darker + 0.05);
+}
+
+// Function to calculate relative luminance for a color
+function calculateRelativeLuminance(color) {
+  const rgbValues = color.match(/\d+/g).map(Number);
+
+  const srgb = rgbValues.map(value => {
+    value /= 255;
+    return value <= 0.03928 ? value / 12.92 : Math.pow((value + 0.055) / 1.055, 2.4);
+  });
+
+  const luminance = 0.2126 * srgb[0] + 0.7152 * srgb[1] + 0.0722 * srgb[2];
+  return luminance;
+}
+
 
 // Create sketch area and randomize BG colors
 numBtn.addEventListener('click', total);
@@ -85,8 +128,6 @@ const resetBtn = document.getElementById('resetBtn')
 resetBtn.addEventListener('click', reset)
 
 function reset() {
-  container.innerHTML = '';
-  container.removeEventListener('mouseover', drawingHandler);
-  isDrawing = false;
+  total();
   applyRandomColors();
 };
