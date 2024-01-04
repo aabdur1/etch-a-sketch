@@ -10,7 +10,7 @@ function total() {
   let userInput = parseInt(num.value);
   userInput = isNaN(userInput) ? minVal : Math.min(maxVal, Math.max(minVal, userInput));
 
-  a = 50 / userInput;
+  a = 40 / userInput;
   const x = userInput ** 2;
 
   container.innerHTML = '';
@@ -36,3 +36,9 @@ container.addEventListener('mouseover', function(event) {
     target.style.height = `${a}vw`;
   }
 });
+
+const resetBtn = document.getElementById('resetBtn')
+resetBtn.addEventListener('click', reset)
+function reset() {
+  container.innerHTML = '';
+}

@@ -3,8 +3,44 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 7vw;
-  gap: 5vw;
+  gap: 2vw;
+  background-color: rgb(162, 123, 165);
+}
+
+.title {
+  font-family: "gelica", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 1vw;
+  background-color: #769bd3;
+  padding: 0.5rem;
+  box-shadow: 
+  0 1px 1px hsla(117deg, 0%, 0%, 0.075),
+  0 2px 2px hsl(117deg 0% 0% / 0.075),
+  0 4px 4px hsl(117deg 0% 0% / 0.075),
+  0 8px 8px hsl(117deg 0% 0% / 0.075),
+  0 16px 16px hsl(117deg 0% 0% / 0.075)
+  ;
+}
+
+#numBtn,
+#resetBtn,
+#num {
+  font-size: 1rem;
+  font-family: "gelica", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  color: #000;
+  cursor: pointer;
+  background-color: rgb(251, 255, 239);
+  border: none;
+  box-shadow: 
+  0 1px 1px hsla(117deg, 0%, 0%, 0.075),
+  0 2px 2px hsl(117deg 0% 0% / 0.075),
+  0 4px 4px hsl(117deg 0% 0% / 0.075),
+  0 8px 8px hsl(117deg 0% 0% / 0.075),
+  0 16px 16px hsl(117deg 0% 0% / 0.075)
+  ;
 }
 
 #container {
@@ -12,14 +48,15 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 50vw;
-  height: 50vw;
+  width: 40vw;
+  height: 40vw;
+  background-color: #769bd3;
 }
 
 .squares {
-  background-color: #000000;
+  background-color: #769bd3;
 }
 
 .drawing {
-  background-color: #769bd3;
+  background-color: #000000;
 }
