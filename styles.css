@@ -3,7 +3,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.8vw;
+  gap: 0.5vw;
   background-color: rgb(241, 210, 182);
 }
 
@@ -17,6 +17,8 @@ body {
   text-shadow: rgb(255, 255, 255) 0px 0px 5px;
   padding: 0.8rem;
   margin: 0.5vw;
+  padding-right: 5vw;
+  padding-left: 5vw;
   box-shadow: 
   0 1px 1px hsla(117deg, 0%, 0%, 0.075),
   0 2px 2px hsl(117deg 0% 0% / 0.075),
@@ -30,7 +32,7 @@ body {
   align-items: center;
   background-color: rgba(250, 235, 215, 0.122);
   gap: 1.5vw;
-  height: 3vw;
+  height: 2.5vw;
   padding: 0.5vw;
 }
 
@@ -52,10 +54,20 @@ body {
   margin-top: 1vw;
 }
 
+#num {
+  font-size: 1rem;
+  font-family: "dico-mono", mono;
+  font-weight: 400;
+  font-style: italic;
+  color: #000;
+  cursor: pointer;
+  background-color: rgb(251, 255, 239);
+  border: none;
+}
+
 #numBtn,
 #resetBtn,
-#colorBtn,
-#num {
+#colorBtn {
   font-size: 1rem;
   font-family: "dico-mono", mono;
   font-weight: 400;
@@ -86,9 +98,6 @@ body {
   0 12px 12px hsl(117deg 0% 0% / 0.33)
   ;
 }
-/* 
-#numTxt {
-} */
 
 #container {
   display: flex;
