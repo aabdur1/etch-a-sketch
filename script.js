@@ -86,7 +86,7 @@ resetBtn.addEventListener('click', reset)
 
 function reset() {
   container.innerHTML = '';
-  // container.removeEventListener('mouseover', drawingHandler);
-  // isDrawing = false;
+  container.removeEventListener('mouseover', drawingHandler);
+  isDrawing = false;
   applyRandomColors();
 };
