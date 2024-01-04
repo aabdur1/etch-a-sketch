@@ -5,6 +5,7 @@ const numBtn = document.getElementById('numBtn');
 let a;
 const minVal = 10;
 const maxVal = 100; 
+let isDrawing = false;
 
 function total() {
   let userInput = parseInt(num.value);
@@ -14,6 +15,10 @@ function total() {
   const x = userInput ** 2;
 
   container.innerHTML = '';
+  
+  container.removeEventListener('mouseover', drawingHandler);
+  isDrawing = false;
+
 
   for (let i = 0; i < x; i++) {
     const div = document.createElement('div');
@@ -24,9 +29,18 @@ function total() {
   }
 }
 
-numBtn.addEventListener('click', total);
 
-container.addEventListener('mouseover', function(event) {
+function startDrawing() {
+  isDrawing = !isDrawing;
+
+  if (isDrawing) {
+    container.addEventListener('mouseover', drawingHandler);
+  } else {
+    container.removeEventListener('mouseover', drawingHandler);
+  }
+};
+
+function drawingHandler(event) {
   const target = event.target;
   
   // Check if the mouseover target is a .squares element
@@ -35,10 +49,16 @@ container.addEventListener('mouseover', function(event) {
     target.style.width = `${a}vw`;
     target.style.height = `${a}vw`;
   }
-});
+};
+
+numBtn.addEventListener('click', total);
+container.addEventListener('click', startDrawing)
 
 const resetBtn = document.getElementById('resetBtn')
 resetBtn.addEventListener('click', reset)
+
 function reset() {
   container.innerHTML = '';
-}
+  container.removeEventListener('mouseover', drawingHandler);
+  isDrawing = false;
+};
