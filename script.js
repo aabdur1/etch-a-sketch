@@ -1,3 +1,5 @@
+const title = document.querySelector('.title');
+
 const container = document.querySelector('#container');
 
 const num = document.getElementById('num');
@@ -15,7 +17,7 @@ function total() {
   const x = userInput ** 2;
 
   container.innerHTML = '';
-  
+
   container.removeEventListener('mouseover', drawingHandler);
   isDrawing = false;
 
@@ -51,7 +53,28 @@ function drawingHandler(event) {
   }
 };
 
+function getRandomColor() {
+  // Generate random color values for red, green, and blue
+  const randomRed = Math.floor(Math.random() * 256);
+  const randomGreen = Math.floor(Math.random() * 256);
+  const randomBlue = Math.floor(Math.random() * 256);
+
+  // Construct the RGB color string
+  const randomColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+
+  return randomColor;
+}
+
+function applyRandomColors() {
+  // Apply random background colors to the title, body, and container
+  document.body.style.backgroundColor = getRandomColor();
+  container.style.backgroundColor = getRandomColor();
+  title.style.backgroundColor = getRandomColor();
+  title.style.color = getRandomColor();
+}
+
 numBtn.addEventListener('click', total);
+numBtn.addEventListener('click', applyRandomColors);
 container.addEventListener('click', startDrawing)
 
 const resetBtn = document.getElementById('resetBtn')
@@ -61,4 +84,5 @@ function reset() {
   container.innerHTML = '';
   container.removeEventListener('mouseover', drawingHandler);
   isDrawing = false;
+  applyRandomColors();
 };

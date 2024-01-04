@@ -12,6 +12,7 @@ body {
   font-weight: 400;
   font-style: italic;
   margin-top: 1vw;
+  color: #00000057;
   background-color: #769bd3;
   padding: 0.5rem;
   box-shadow: 
@@ -53,10 +54,10 @@ body {
   background-color: #769bd3;
 }
 
-.squares {
+/* .squares {
   background-color: #769bd3;
-}
+} */
 
 .drawing {
-  background-color: #000000;
+  background-color: #0000009e;
 }
