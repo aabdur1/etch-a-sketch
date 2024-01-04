@@ -17,8 +17,7 @@ function total() {
 
   container.innerHTML = '';
 
-  container.removeEventListener('mouseover', drawingHandler);
-  isDrawing = false;
+  container.removeEventListener('mousemove', drawingHandler);
 
 
   for (let i = 0; i < x; i++) {
@@ -32,28 +31,30 @@ function total() {
 
 
 function startDrawing() {
-  isDrawing = !isDrawing;
+  isDrawing = true;
+  container.addEventListener('mousemove', drawingHandler);
+}
 
-  if (isDrawing) {
-    container.addEventListener('mouseover', drawingHandler);
-  } else {
-    container.removeEventListener('mouseover', drawingHandler);
-  }
-};
+function stopDrawing() {
+  isDrawing = false;
+  container.removeEventListener('mousemove', drawingHandler);
+}
 
 function drawingHandler(event) {
-  const target = event.target;
-  
-  // Check if the mouseover target is a .squares element
-  if (target.classList.contains('squares')) {
-    target.setAttribute('class', 'drawing');
-    target.style.width = `${a}vw`;
-    target.style.height = `${a}vw`;
+  if (isDrawing) {
+    const target = event.target;
+
+    // Check if the mouseover target is a .squares element
+    if (target.classList.contains('squares')) {
+      target.setAttribute('class', 'drawing');
+      target.style.width = `${a}vw`;
+      target.style.height = `${a}vw`;
+    }
   }
-};
+}
 
 function getRandomColor() {
-  // Generate random color values for red, green, and blue
+  // Generate random RGB color values
   const randomRed = Math.floor(Math.random() * 256);
   const randomGreen = Math.floor(Math.random() * 256);
   const randomBlue = Math.floor(Math.random() * 256);
@@ -64,7 +65,7 @@ function getRandomColor() {
   return randomColor;
 }
 
-// Apply random background colors to the title, body, and container
+// Apply random BG colors to the title, body, and container
 function applyRandomColors() {
   document.body.style.backgroundColor = getRandomColor();
   container.style.backgroundColor = getRandomColor();
@@ -77,14 +78,15 @@ numBtn.addEventListener('click', total);
 numBtn.addEventListener('click', applyRandomColors);
 
 
-container.addEventListener('click', startDrawing)
+container.addEventListener('mousedown', startDrawing);
+container.addEventListener('mouseup', stopDrawing);
 
 const resetBtn = document.getElementById('resetBtn')
 resetBtn.addEventListener('click', reset)
 
 function reset() {
   container.innerHTML = '';
-  container.removeEventListener('mouseover', drawingHandler);
-  isDrawing = false;
+  // container.removeEventListener('mouseover', drawingHandler);
+  // isDrawing = false;
   applyRandomColors();
 };
