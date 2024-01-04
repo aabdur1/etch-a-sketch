@@ -3,17 +3,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1vw;
-  background-color: rgb(162, 123, 165);
+  gap: 0.8vw;
+  background-color: rgb(241, 210, 182);
 }
 
 .title {
   font-family: "macula-line", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 3rem;
-  color: #00000057;
-  background-color: #769bd3;
+  font-size: 2.7rem;
+  background-color: rgb(226, 164, 192);
+  color: rgb(161, 82, 216);
+  text-shadow: rgb(255, 255, 255) 0px 0px 5px;
   padding: 0.8rem;
   margin: 0.5vw;
   box-shadow: 
@@ -26,11 +27,34 @@ body {
 
 #input {
   display: flex;
+  align-items: center;
+  background-color: rgba(250, 235, 215, 0.122);
   gap: 1.5vw;
+  height: 3vw;
+  padding: 0.5vw;
+}
+
+#numTxt {
+  font-size: 1rem;
+  font-family: "dico-mono", mono;
+  font-weight: 400;
+  font-style: italic;
+  color: #000;
+}
+
+#bottom {
+  display: flex;
+  gap: 25vw;
+}
+
+#resetBtn,
+#colorBtn {
+  margin-top: 1vw;
 }
 
 #numBtn,
 #resetBtn,
+#colorBtn,
 #num {
   font-size: 1rem;
   font-family: "dico-mono", mono;
@@ -51,7 +75,8 @@ body {
 }
 
 #numBtn:hover,
-#resetBtn:hover {
+#resetBtn:hover,
+#colorBtn:hover {
   background-color: rgb(245, 255, 211);
   transform: translateY(4%);
   box-shadow: 
@@ -61,15 +86,18 @@ body {
   0 12px 12px hsl(117deg 0% 0% / 0.33)
   ;
 }
+/* 
+#numTxt {
+} */
 
 #container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 40vw;
-  height: 40vw;
-  background-color: #769bd3;
+  width: 38vw;
+  height: 38vw;
+  background-color: rgb(203, 193, 183);
   box-shadow: 
   0 1px 1px hsla(117deg, 0%, 0%, 0.075),
   0 2px 2px hsl(117deg 0% 0% / 0.075),

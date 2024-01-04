@@ -12,7 +12,7 @@ function total() {
   userInput = isNaN(userInput) ? minVal : Math.min(maxVal, Math.max(minVal, userInput));
 
   // Container width divided by input # for square dimensions
-  a = 40 / userInput;
+  a = 38 / userInput;
   const x = userInput ** 2;
 
   container.innerHTML = '';
@@ -118,7 +118,7 @@ function calculateRelativeLuminance(color) {
 
 // Create sketch area and randomize BG colors
 numBtn.addEventListener('click', total);
-numBtn.addEventListener('click', applyRandomColors);
+// numBtn.addEventListener('click', applyRandomColors);
 
 
 container.addEventListener('mousedown', startDrawing);
@@ -129,5 +129,7 @@ resetBtn.addEventListener('click', reset)
 
 function reset() {
   total();
-  applyRandomColors();
 };
+
+const colorBtn = document.getElementById('colorBtn');
+colorBtn.addEventListener('click', applyRandomColors);
