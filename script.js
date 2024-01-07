@@ -10,6 +10,8 @@ let isDrawing = false;
 function total() {
   let userInput = parseInt(num.value);
   userInput = isNaN(userInput) ? minVal : Math.min(maxVal, Math.max(minVal, userInput));
+  num.value = userInput;
+  
 
   // Container width divided by input # for square dimensions
   a = 38 / userInput;
@@ -30,14 +32,16 @@ function total() {
 }
 
 
-function startDrawing() {
+function startDrawing(event) {
   isDrawing = true;
-  container.addEventListener('mousemove', drawingHandler);
+  document.addEventListener('mousemove', drawingHandler);
+  event.preventDefault();
+  event.stopPropagation();
 }
 
 function stopDrawing() {
   isDrawing = false;
-  container.removeEventListener('mousemove', drawingHandler);
+  document.removeEventListener('mousemove', drawingHandler);
 }
 
 function drawingHandler(event) {
@@ -118,11 +122,10 @@ function calculateRelativeLuminance(color) {
 
 // Create sketch area and randomize BG colors
 numBtn.addEventListener('click', total);
-// numBtn.addEventListener('click', applyRandomColors);
 
 
 container.addEventListener('mousedown', startDrawing);
-container.addEventListener('mouseup', stopDrawing);
+document.addEventListener('mouseup', stopDrawing);
 
 const resetBtn = document.getElementById('resetBtn')
 resetBtn.addEventListener('click', reset)
