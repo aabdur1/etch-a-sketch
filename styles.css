@@ -3,6 +3,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5vw;
   background-color: rgb(241, 210, 182);
 }
@@ -34,6 +35,8 @@ body {
   gap: 1.5vw;
   height: 2.5vw;
   padding: 0.5vw;
+  max-width: fit-content;
+  flex-wrap: wrap;
 }
 
 #numTxt {
@@ -46,7 +49,9 @@ body {
 
 #bottom {
   display: flex;
-  gap: 25vw;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 38vw;
 }
 
 #resetBtn,
